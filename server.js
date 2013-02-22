@@ -29,11 +29,26 @@ var serviceBaseUrl = 'http://www.comune.cagliari.it/portale/api/rs/it/cagliari/r
 app.get('/', function(req, res) {
 	var request = require('request');
 	request(serviceBaseUrl+'?idElezione=82', function (error, response, body) {
-		var outSenato = { spoglio: null, risultati: null };
+		var outSenato = { spoglio: null, risultati: 
+			[
+				{
+					id: 1,
+					descrizione: 'lista esempio 1',
+					voti: 0,
+					percentuale: 0
+				},
+				{
+					id: 2,
+					descrizione: 'lista esempio 2',
+					voti: 0,
+					percentuale: 0
+				}
+			]
+		};
 		if (!error && response.statusCode == 200) {
 		    var output = JSON.parse(body);
-		    outSenato.spoglio = output.spoglio||null;
-		    outSenato.risultati = output.risultati||null;
+		    outSenato.spoglio = output.spoglio||outSenato.spoglio;
+		    outSenato.risultati = output.risultati||outSenato.risultati;
 		}
 		else {
 
@@ -42,8 +57,8 @@ app.get('/', function(req, res) {
 			var outCamera = { spoglio: null, risultati: null };
 			if (!error && response.statusCode == 200) {
 			    var output = JSON.parse(body);
-			    outCamera.spoglio = output.spoglio||null;
-			    outCamera.risultati = output.risultati||null;
+			    outCamera.spoglio = output.spoglio||outCamera.spoglio;
+			    outCamera.risultati = output.risultati||outCamera.risultati;
 			}
 			else {
 

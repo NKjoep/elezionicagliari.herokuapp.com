@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Philosopher);
+@import url(http://fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic);
 body {
 	font-family: 'Philosopher', sans-serif;
 	background-color: silver;
@@ -17,8 +17,44 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf7e8', end
 
 }
 
+article {
+	margin-bottom: 4.5em;
+}
+
 .col {
 	float: left;
 	width: 40%;
 	padding: 1em 5%;
+}
+
+table {
+	border: 0px;
+	border-left: 1px solid rgba(0,0,0,0.17);
+	border-top: 1px solid rgba(0,0,0,0.17);
+	float: left;
+	width: 100%;
+	border-radius: 8px;
+}
+
+th {
+	font-weight: bold;
+	border: 0;
+	border-right: 1px solid rgba(0,0,0,0.17);
+	border-bottom: 1px solid rgba(0,0,0,0.17);
+	padding: 1em 0.5em;
+}
+td {
+	padding: 0.5em 0.25em;
+	border-right: 1px solid rgba(0,0,0,0.17);
+	border-bottom: 1px solid rgba(0,0,0,0.17);
+}
+
+dt {
+	padding: 1em 0 0.25em 0;
+}
+
+dd {
+	padding-bottom: 0.25em;
+	margin-bottom: 0.5em;
+	border-bottom: 1px solid rgba(0,0,0,0.17);
 }

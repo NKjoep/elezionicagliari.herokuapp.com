@@ -47,8 +47,27 @@
 				</dl>
 			</article>
 			<article>
-				<h2>Risultati</h2>
-				<%= risultatiSenato %>
+				<h2>Risultati <%= spoglioSenato.descrizione %></h2>
+				<table>
+					<thead>
+						<tr>
+							<th>lista</th>
+							<th>voti</th>
+							<th>percentuale</th>
+						</tr>
+					</thead>
+					<% if(risultatiSenato!=null)
+						for (var i = 0; i<risultatiSenato.length;i++) { %>
+						<tr>
+							<td>
+								<%= risultatiSenato[i].id %>)
+								<%= risultatiSenato[i].descrizione %>
+							</td>
+							<td><%= risultatiSenato[i].voti %></td>
+							<td><%= risultatiSenato[i].percentuale %></td>
+						</tr>
+					<% } %>
+				</table>
 			</article>
 		</section>
 		<section class="col">
@@ -77,7 +96,26 @@
 			</article>
 			<article>
 				<h2>Risultati <%= spoglioCamera.descrizione %></h2>
-				<%= risultatiCamera %>
+				<table>
+					<thead>
+						<tr>
+							<th>lista</th>
+							<th>voti</th>
+							<th>percentuale</th>
+						</tr>
+					</thead>
+					<% if(risultatiCamera!=null)
+						for (var i = 0; i<risultatiCamera.length;i++) { %>
+						<tr>
+							<td>
+								<%= risultatiCamera[i].id %>)
+								<%= risultatiCamera[i].descrizione %>
+							</td>
+							<td><%= risultatiCamera[i].voti %></td>
+							<td><%= risultatiCamera[i].percentuale %></td>
+						</tr>
+					<% } %>
+				</table>
 			</article>
 		</section>
 	</body>
