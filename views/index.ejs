@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Risultati Elettorali</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css' />
+		<link href='css.css' rel='stylesheet' type='text/css' />
+		<!--[if gte IE 9]>
+		  <style type="text/css">
+		    .gradient {
+		       filter: none;
+		    }
+		  </style>
+		<![endif]-->
+	</head>
+	<body class="gradient">
+		<header><h1>Risultati Elettorali</h1></header>
+		<hr />
+		<section class="col">
+			<article>
+				<h2>Spoglio <%= spoglioSenato.descrizione %></h2>
+				<dl>
+				    <dt>lastUpdate</dt>
+				    	<dd><%
+				    		var senatoDate =new Date(spoglioSenato.lastUpdate)
+				    	%><%= senatoDate %>
+				    	</dd>
+				    <dt>totaleVotanti</dt>
+				    	<dd><%= spoglioSenato.totaleVotanti %></dd>
+				    <dt>totaleIscritti</dt>
+				    	<dd><%= spoglioSenato.totaleIscritti %></dd>
+				    <dt>totaleValide</dt>
+				    	<dd><%= spoglioSenato.totaleValide %></dd>
+				    <dt>totaleBianche</dt>
+				    	<dd><%= spoglioSenato.totaleBianche %></dd>
+				    <dt>totaleNulle</dt>
+				    	<dd><%= spoglioSenato.totaleNulle %></dd>
+				    <dt>totaleContestate</dt>
+				    	<dd><%= spoglioSenato.totaleContestate %></dd>
+				    <dt>sezioniScrutinate</dt>
+				    	<dd><%= spoglioSenato.sezioniScrutinate %></dd>
+				    <dt>sezioniTotali</dt>
+				    	<dd><%= spoglioSenato.sezioniTotali %></dd>
+				</dl>
+			</article>
+			<article>
+				<h2>Risultati</h2>
+				<%= risultatiSenato %>
+			</article>
+		</section>
+		<section class="col">
+			<article>
+				<h2>Spoglio <%= spoglioCamera.descrizione %></h2>
+				<dl>
+				    <dt>lastUpdate</dt>
+				    	<dd><% var cameraDate = new Date(spoglioCamera.lastUpdate); %><%= cameraDate %></dd>
+				    <dt>totaleVotanti</dt>
+				    	<dd><%= spoglioCamera.totaleVotanti %></dd>
+				    <dt>totaleIscritti</dt>
+				    	<dd><%= spoglioCamera.totaleIscritti %></dd>
+				    <dt>totaleValide</dt>
+				    	<dd><%= spoglioCamera.totaleValide %></dd>
+				    <dt>totaleBianche</dt>
+				    	<dd><%= spoglioCamera.totaleBianche %></dd>
+				    <dt>totaleNulle</dt>
+				    	<dd><%= spoglioCamera.totaleNulle %></dd>
+				    <dt>totaleContestate</dt>
+				    	<dd><%= spoglioCamera.totaleContestate %></dd>
+				    <dt>sezioniScrutinate</dt>
+				    	<dd><%= spoglioCamera.sezioniScrutinate %></dd>
+				    <dt>sezioniTotali</dt>
+				    	<dd><%= spoglioCamera.sezioniTotali %></dd>
+				</dl>
+			</article>
+			<article>
+				<h2>Risultati <%= spoglioCamera.descrizione %></h2>
+				<%= risultatiCamera %>
+			</article>
+		</section>
+	</body>
+</html>
