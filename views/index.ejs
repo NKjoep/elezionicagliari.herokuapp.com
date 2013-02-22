@@ -14,13 +14,16 @@
 		<![endif]-->
 	</head>
 	<body class="gradient">
-		<header><h1>Risultati Elettorali</h1></header>
+		<header>
+			<h1>Risultati Elettorali Comune di Cagliari</h1>
+			<p>Sorgente dei dati <a href="http://www.comune.cagliari.it/portale/it/api_rest.page?internalServletFrameDest=7&amp;internalServletActionPath=/ExtStr2/do/Front/Api/Resource/detail.action&amp;resourceName=risultatiElezioni&amp;namespace=cagliari">Open Data Service del Comune di Cagliari</a></p>
+		</header>
 		<hr />
 		<section class="col">
 			<article>
 				<h2>Spoglio <%= spoglioSenato.descrizione %></h2>
 				<dl>
-				    <dt>lastUpdate</dt>
+				    <dt>Aggiornamento</dt>
 				    	<dd><%
 				    		var senatoDate =new Date(spoglioSenato.lastUpdate)
 				    	%><%= senatoDate %>
@@ -52,7 +55,7 @@
 			<article>
 				<h2>Spoglio <%= spoglioCamera.descrizione %></h2>
 				<dl>
-				    <dt>lastUpdate</dt>
+				    <dt>Aggiornamento</dt>
 				    	<dd><% var cameraDate = new Date(spoglioCamera.lastUpdate); %><%= cameraDate %></dd>
 				    <dt>totaleVotanti</dt>
 				    	<dd><%= spoglioCamera.totaleVotanti %></dd>
