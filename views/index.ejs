@@ -1,122 +1,135 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="it">
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
 		<title>Risultati Elettorali</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css' />
+		<link href='http://twitter.github.com/bootstrap/assets/css/bootstrap.css' rel='stylesheet' type='text/css' />
 		<link href='css.css' rel='stylesheet' type='text/css' />
+		<link href='http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css' rel='stylesheet' type='text/css' />
 		<!--[if gte IE 9]>
-		  <style type="text/css">
-		    .gradient {
-		       filter: none;
-		    }
+		<style type="text/css">
+			.gradient {
+			filter: none;
+			}
 		  </style>
 		<![endif]-->
 	</head>
 	<body class="gradient">
-		<header>
-			<h1>Risultati Elettorali Comune di Cagliari</h1>
-			<p>Sorgente dei dati <a href="http://www.comune.cagliari.it/portale/it/api_rest.page?internalServletFrameDest=7&amp;internalServletActionPath=/ExtStr2/do/Front/Api/Resource/detail.action&amp;resourceName=risultatiElezioni&amp;namespace=cagliari">Open Data Service del Comune di Cagliari</a></p>
-		</header>
-		<hr />
-		<section class="col">
-			<article>
-				<h2>Spoglio <%= spoglioSenato.descrizione %></h2>
-				<dl>
-				    <dt>Aggiornamento</dt>
-				    	<dd><%
-				    		var senatoDate =new Date(spoglioSenato.lastUpdate)
-				    	%><%= senatoDate %>
-				    	</dd>
-				    <dt>totaleVotanti</dt>
-				    	<dd><%= spoglioSenato.totaleVotanti %></dd>
-				    <dt>totaleIscritti</dt>
-				    	<dd><%= spoglioSenato.totaleIscritti %></dd>
-				    <dt>totaleValide</dt>
-				    	<dd><%= spoglioSenato.totaleValide %></dd>
-				    <dt>totaleBianche</dt>
-				    	<dd><%= spoglioSenato.totaleBianche %></dd>
-				    <dt>totaleNulle</dt>
-				    	<dd><%= spoglioSenato.totaleNulle %></dd>
-				    <dt>totaleContestate</dt>
-				    	<dd><%= spoglioSenato.totaleContestate %></dd>
-				    <dt>sezioniScrutinate</dt>
-				    	<dd><%= spoglioSenato.sezioniScrutinate %></dd>
-				    <dt>sezioniTotali</dt>
-				    	<dd><%= spoglioSenato.sezioniTotali %></dd>
-				</dl>
-			</article>
-			<article>
-				<h2>Risultati <%= spoglioSenato.descrizione %></h2>
-				<table>
-					<thead>
-						<tr>
-							<th>lista</th>
-							<th>voti</th>
-							<th>percentuale</th>
-						</tr>
-					</thead>
-					<% if(risultatiSenato!=null)
-						for (var i = 0; i<risultatiSenato.length;i++) { %>
-						<tr>
-							<td>
-								<%= risultatiSenato[i].id %>)
-								<%= risultatiSenato[i].descrizione %>
-							</td>
-							<td><%= risultatiSenato[i].voti %></td>
-							<td><%= risultatiSenato[i].percentuale %></td>
-						</tr>
-					<% } %>
-				</table>
-			</article>
-		</section>
-		<section class="col">
-			<article>
-				<h2>Spoglio <%= spoglioCamera.descrizione %></h2>
-				<dl>
-				    <dt>Aggiornamento</dt>
-				    	<dd><% var cameraDate = new Date(spoglioCamera.lastUpdate); %><%= cameraDate %></dd>
-				    <dt>totaleVotanti</dt>
-				    	<dd><%= spoglioCamera.totaleVotanti %></dd>
-				    <dt>totaleIscritti</dt>
-				    	<dd><%= spoglioCamera.totaleIscritti %></dd>
-				    <dt>totaleValide</dt>
-				    	<dd><%= spoglioCamera.totaleValide %></dd>
-				    <dt>totaleBianche</dt>
-				    	<dd><%= spoglioCamera.totaleBianche %></dd>
-				    <dt>totaleNulle</dt>
-				    	<dd><%= spoglioCamera.totaleNulle %></dd>
-				    <dt>totaleContestate</dt>
-				    	<dd><%= spoglioCamera.totaleContestate %></dd>
-				    <dt>sezioniScrutinate</dt>
-				    	<dd><%= spoglioCamera.sezioniScrutinate %></dd>
-				    <dt>sezioniTotali</dt>
-				    	<dd><%= spoglioCamera.sezioniTotali %></dd>
-				</dl>
-			</article>
-			<article>
-				<h2>Risultati <%= spoglioCamera.descrizione %></h2>
-				<table>
-					<thead>
-						<tr>
-							<th>lista</th>
-							<th>voti</th>
-							<th>percentuale</th>
-						</tr>
-					</thead>
-					<% if(risultatiCamera!=null)
-						for (var i = 0; i<risultatiCamera.length;i++) { %>
-						<tr>
-							<td>
-								<%= risultatiCamera[i].id %>)
-								<%= risultatiCamera[i].descrizione %>
-							</td>
-							<td><%= risultatiCamera[i].voti %></td>
-							<td><%= risultatiCamera[i].percentuale %></td>
-						</tr>
-					<% } %>
-				</table>
-			</article>
-		</section>
+	<!-- Part 1: Wrap all page content here -->
+	<div id="wrap">
+
+		<!-- Begin page content -->
+		<div class="container">
+			<header class="page-header">
+				<h1>Risultati Elettorali Comune di Cagliari</h1>
+				<p class="muted credit">Sorgente dei dati <a href="http://www.comune.cagliari.it/portale/it/api_rest.page?internalServletFrameDest=7&amp;internalServletActionPath=/ExtStr2/do/Front/Api/Resource/detail.action&amp;resourceName=risultatiElezioni&amp;namespace=cagliari">Open Data Service del Comune di Cagliari</a>.</p>
+			</header>
+			
+			<div class="row-fluid">
+				<section class="span6">
+					<article>
+						<h2>Spoglio <%= spoglioSenato.descrizione %></h2>
+						<dl>
+							<dt>Aggiornamento</dt>
+								<dd><%
+									var senatoDate =new Date(spoglioSenato.lastUpdate)
+								%><%= senatoDate %>
+								</dd>
+							<dt>totaleVotanti</dt>
+								<dd><%= spoglioSenato.totaleVotanti %></dd>
+							<dt>totaleIscritti</dt>
+								<dd><%= spoglioSenato.totaleIscritti %></dd>
+							<dt>totaleValide</dt>
+								<dd><%= spoglioSenato.totaleValide %></dd>
+							<dt>totaleBianche</dt>
+								<dd><%= spoglioSenato.totaleBianche %></dd>
+							<dt>totaleNulle</dt>
+								<dd><%= spoglioSenato.totaleNulle %></dd>
+							<dt>totaleContestate</dt>
+								<dd><%= spoglioSenato.totaleContestate %></dd>
+							<dt>sezioniScrutinate</dt>
+								<dd><%= spoglioSenato.sezioniScrutinate %></dd>
+							<dt>sezioniTotali</dt>
+								<dd><%= spoglioSenato.sezioniTotali %></dd>
+						</dl>
+					</article>
+					<article>
+						<h2>Risultati <%= spoglioSenato.descrizione %></h2>
+						<table class="table table-hover table-striped">
+							<thead>
+								<tr>
+									<th>lista</th>
+									<th>voti</th>
+									<th>percentuale</th>
+								</tr>
+							</thead>
+							<% if(risultatiSenato!=null)
+								for (var i = 0; i<risultatiSenato.length;i++) { %>
+								<tr>
+									<td>
+										<%= risultatiSenato[i].id %>)
+										<%= risultatiSenato[i].descrizione %>
+									</td>
+									<td><%= risultatiSenato[i].voti %></td>
+									<td><%= risultatiSenato[i].percentuale %></td>
+								</tr>
+							<% } %>
+						</table>
+					</article>
+				</section>
+				<section class="span6">
+					<article>
+						<h2>Spoglio <%= spoglioCamera.descrizione %></h2>
+						<dl>
+							<dt>Aggiornamento</dt>
+								<dd><% var cameraDate = new Date(spoglioCamera.lastUpdate); %><%= cameraDate %></dd>
+							<dt>totaleVotanti</dt>
+								<dd><%= spoglioCamera.totaleVotanti %></dd>
+							<dt>totaleIscritti</dt>
+								<dd><%= spoglioCamera.totaleIscritti %></dd>
+							<dt>totaleValide</dt>
+								<dd><%= spoglioCamera.totaleValide %></dd>
+							<dt>totaleBianche</dt>
+								<dd><%= spoglioCamera.totaleBianche %></dd>
+							<dt>totaleNulle</dt>
+								<dd><%= spoglioCamera.totaleNulle %></dd>
+							<dt>totaleContestate</dt>
+								<dd><%= spoglioCamera.totaleContestate %></dd>
+							<dt>sezioniScrutinate</dt>
+								<dd><%= spoglioCamera.sezioniScrutinate %></dd>
+							<dt>sezioniTotali</dt>
+								<dd><%= spoglioCamera.sezioniTotali %></dd>
+						</dl>
+					</article>
+					<article>
+						<h2>Risultati <%= spoglioCamera.descrizione %></h2>
+						<table class="table table-hover table-striped">
+							<thead>
+								<tr>
+									<th>lista</th>
+									<th>voti</th>
+									<th>percentuale</th>
+								</tr>
+							</thead>
+							<% if(risultatiCamera!=null)
+								for (var i = 0; i<risultatiCamera.length;i++) { %>
+								<tr>
+									<td>
+										<%= risultatiCamera[i].id %>)
+										<%= risultatiCamera[i].descrizione %>
+									</td>
+									<td><%= risultatiCamera[i].voti %></td>
+									<td><%= risultatiCamera[i].percentuale %></td>
+								</tr>
+							<% } %>
+						</table>
+					</article>
+				</section>
+			</div>
+
+		</div>
+
+	</div>
 	</body>
 </html>
