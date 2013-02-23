@@ -30,20 +30,7 @@ app.get('/', function(req, res) {
 	var request = require('request');
 	request(serviceBaseUrl+'?idElezione=82', function (error, response, body) {
 		var outSenato = { spoglio: null, risultati: 
-			[
-				{
-					id: 1,
-					descrizione: 'lista esempio 1',
-					voti: 0,
-					percentuale: 0
-				},
-				{
-					id: 2,
-					descrizione: 'lista esempio 2',
-					voti: 0,
-					percentuale: 0
-				}
-			]
+			null
 		};
 		if (!error && response.statusCode == 200) {
 		    var output = JSON.parse(body);
