@@ -36,21 +36,21 @@
 									var senatoDate =new Date(spoglioSenato.lastUpdate)
 								%><%= senatoDate %>
 								</dd>
-							<dt>totaleVotanti</dt>
+							<dt>Numero Totale dei Votanti</dt>
 								<dd><%= spoglioSenato.totaleVotanti %></dd>
-							<dt>totaleIscritti</dt>
+							<dt>Totale degli Iscritti</dt>
 								<dd><%= spoglioSenato.totaleIscritti %></dd>
-							<dt>totaleValide</dt>
+							<dt>Schede valide</dt>
 								<dd><%= spoglioSenato.totaleValide %></dd>
-							<dt>totaleBianche</dt>
+							<dt>Schede bianche</dt>
 								<dd><%= spoglioSenato.totaleBianche %></dd>
-							<dt>totaleNulle</dt>
+							<dt>Schede nulle</dt>
 								<dd><%= spoglioSenato.totaleNulle %></dd>
-							<dt>totaleContestate</dt>
+							<dt>Schede contestate</dt>
 								<dd><%= spoglioSenato.totaleContestate %></dd>
-							<dt>sezioniScrutinate</dt>
+							<dt>Sezioni scrutinate</dt>
 								<dd><%= spoglioSenato.sezioniScrutinate %></dd>
-							<dt>sezioniTotali</dt>
+							<dt>Sezioni totali</dt>
 								<dd><%= spoglioSenato.sezioniTotali %></dd>
 						</dl>
 					</article>
@@ -84,21 +84,21 @@
 						<dl>
 							<dt>Aggiornamento</dt>
 								<dd><% var cameraDate = new Date(spoglioCamera.lastUpdate); %><%= cameraDate %></dd>
-							<dt>totaleVotanti</dt>
+							<dt>Numero Totale dei Votanti</dt>
 								<dd><%= spoglioCamera.totaleVotanti %></dd>
-							<dt>totaleIscritti</dt>
+							<dt>Totale degli Iscritti</dt>
 								<dd><%= spoglioCamera.totaleIscritti %></dd>
-							<dt>totaleValide</dt>
+							<dt>Schede valide</dt>
 								<dd><%= spoglioCamera.totaleValide %></dd>
-							<dt>totaleBianche</dt>
+							<dt>Schede bianche</dt>
 								<dd><%= spoglioCamera.totaleBianche %></dd>
-							<dt>totaleNulle</dt>
+							<dt>Schede nulle</dt>
 								<dd><%= spoglioCamera.totaleNulle %></dd>
-							<dt>totaleContestate</dt>
+							<dt>Schede contestate</dt>
 								<dd><%= spoglioCamera.totaleContestate %></dd>
-							<dt>sezioniScrutinate</dt>
+							<dt>Sezioni scrutinate</dt>
 								<dd><%= spoglioCamera.sezioniScrutinate %></dd>
-							<dt>sezioniTotali</dt>
+							<dt>Sezioni totali</dt>
 								<dd><%= spoglioCamera.sezioniTotali %></dd>
 						</dl>
 					</article>
@@ -131,5 +131,18 @@
 		</div>
 
 	</div>
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-38739616-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
 	</body>
 </html>
