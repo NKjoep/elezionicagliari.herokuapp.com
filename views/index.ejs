@@ -25,7 +25,7 @@
 						['Lista', 'Percentuale'],
 						<% if(risultatiSenato!=null)
 							for (var i = 0; i<risultatiSenato.length;i++) { %>
-							["<%= risultatiSenato[i].id %> - <%= risultatiSenato[i].descrizione %>", <%= risultatiSenato[i].percentuale %>] <% if (i < (risultatiSenato.length-1)) { %>,<%}%> 
+							["<%= risultatiSenato[i].descrizione %>", <%= risultatiSenato[i].percentuale %>] <% if (i < (risultatiSenato.length-1)) { %>,<%}%> 
 						<% } %>
 					]),{});
 			var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
@@ -34,7 +34,7 @@
 						['Lista', 'Percentuale'],
 						<% if(risultatiCamera!=null)
 							for (var i = 0; i<risultatiCamera.length;i++) { %>
-							["<%= risultatiCamera[i].id %> - <%= risultatiCamera[i].descrizione %>", <%= risultatiCamera[i].percentuale %>] <% if (i < (risultatiCamera.length-1)) { %>,<%}%> 
+							["<%= risultatiCamera[i].descrizione %>", <%= risultatiCamera[i].percentuale %>] <% if (i < (risultatiCamera.length-1)) { %>,<%}%> 
 						<% } %>
 					]),{});
 
