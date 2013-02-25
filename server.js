@@ -35,7 +35,7 @@ app.get('/', function(req, res) {
 		if (!error && response.statusCode == 200) {
 		    var output = JSON.parse(body);
 		    outSenato.spoglio = output.spoglio||outSenato.spoglio;
-		    outSenato.risultati = output.risultati||outSenato.risultati;
+		    outSenato.risultati = output.spoglio.risultati.lista||outSenato.risultati;
 		}
 		else {
 
@@ -45,7 +45,7 @@ app.get('/', function(req, res) {
 			if (!error && response.statusCode == 200) {
 			    var output = JSON.parse(body);
 			    outCamera.spoglio = output.spoglio||outCamera.spoglio;
-			    outCamera.risultati = output.risultati||outCamera.risultati;
+			    outCamera.risultati = output.spoglio.risultati.lista||outCamera.risultati;
 			}
 			else {
 
@@ -56,6 +56,7 @@ app.get('/', function(req, res) {
 				spoglioCamera: outCamera.spoglio,
 				risultatiCamera: outCamera.risultati
 			});
+			console.dir(outSenato.risultati);
 		});
 		
 
