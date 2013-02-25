@@ -64,10 +64,7 @@ app.get('/', function(req, res) {
 				spoglioCamera: outCamera.spoglio,
 				risultatiCamera: outCamera.risultati
 			});
-			console.dir(outSenato.risultati);
 		});
-		
-
 	})
 });
 
