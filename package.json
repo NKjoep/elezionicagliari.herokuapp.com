@@ -10,6 +10,7 @@
     "ejs": "0.8.x",
     "optimist": "*",
     "buffered-reader": "1.0.x",
-    "request": "2.14.x"
+    "request": "2.14.x",
+    "underscore": "*"
   }
 }

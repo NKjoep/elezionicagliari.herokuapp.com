@@ -2,6 +2,7 @@ var argv = require('optimist').argv;
 var express = require('express');
 var ejs = require('ejs');
 var request = require('request');
+var _ = require('underscore');
 
 //command Line parameters
 var options = {
@@ -36,6 +37,10 @@ app.get('/', function(req, res) {
 		    var output = JSON.parse(body);
 		    outSenato.spoglio = output.spoglio||outSenato.spoglio;
 		    outSenato.risultati = output.spoglio.risultati.lista||outSenato.risultati;
+		    if (outSenato.risultati!=null) {
+		    	outSenato.risultati = _.sortBy(outSenato.risultati, function(item) { return new Number(item.percentuale) * -1 });
+		    }
+
 		}
 		else {
 
@@ -46,6 +51,9 @@ app.get('/', function(req, res) {
 			    var output = JSON.parse(body);
 			    outCamera.spoglio = output.spoglio||outCamera.spoglio;
 			    outCamera.risultati = output.spoglio.risultati.lista||outCamera.risultati;
+			    if (outCamera.risultati!=null) {
+			    	outCamera.risultati = _.sortBy(outCamera.risultati, function(item) { return new Number(item.percentuale) * -1 });
+				}
 			}
 			else {
 
