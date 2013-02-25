@@ -50,19 +50,50 @@
 								%><%= senatoDate %>
 								</dd>
 							<dt>Numero Totale dei Votanti</dt>
-								<dd><%= spoglioSenato.totaleVotanti %></dd>
+								<dd>
+									<%= spoglioSenato.totaleVotanti %>
+									<% if (spoglioSenato.totaleIscritti && spoglioSenato.totaleIscritti>0) { 
+										var val = ((spoglioSenato.totaleVotanti*100) / spoglioSenato.totaleIscritti).toFixed(2)
+										%>
+										&emsp;<strong>(<%=val%>%)</strong>
+									<% } %>
+								</dd>
 							<dt>Totale degli Iscritti</dt>
 								<dd><%= spoglioSenato.totaleIscritti %></dd>
 							<dt>Schede valide</dt>
 								<dd><%= spoglioSenato.totaleValide %></dd>
 							<dt>Schede bianche</dt>
-								<dd><%= spoglioSenato.totaleBianche %></dd>
+								<dd><%= spoglioSenato.totaleBianche %>
+									<% if (spoglioSenato.totaleValide && spoglioSenato.totaleValide>0) { 
+										var val = ((spoglioSenato.totaleBianche*100) / spoglioSenato.totaleValide).toFixed(2)
+										%>
+										&emsp;<strong>(<%=val%>%)</strong>
+									<% } %>
+								</dd>
 							<dt>Schede nulle</dt>
-								<dd><%= spoglioSenato.totaleNulle %></dd>
+								<dd><%= spoglioSenato.totaleNulle %>
+									<% if (spoglioSenato.totaleValide && spoglioSenato.totaleValide>0) { 
+										var val = ((spoglioSenato.totaleNulle*100) / spoglioSenato.totaleValide).toFixed(2)
+										%>
+										&emsp;<strong>(<%=val%>%)</strong>
+									<% } %>
+								</dd>
 							<dt>Schede contestate</dt>
-								<dd><%= spoglioSenato.totaleContestate %></dd>
+								<dd><%= spoglioSenato.totaleContestate %>
+									<% if (spoglioSenato.totaleValide && spoglioSenato.totaleValide>0) { 
+										var val = ((spoglioSenato.totaleContestate*100) / spoglioSenato.totaleValide).toFixed(2)
+										%>
+										&emsp;<strong>(<%=val%>%)</strong>
+									<% } %>
+								</dd>
 							<dt>Sezioni scrutinate</dt>
-								<dd><%= spoglioSenato.sezioniScrutinate %></dd>
+								<dd><%= spoglioSenato.sezioniScrutinate %>
+									<% if (spoglioSenato.sezioniTotali && spoglioSenato.sezioniTotali>0) { 
+										var val = ((spoglioSenato.sezioniScrutinate*100) / spoglioSenato.sezioniTotali).toFixed(2)
+										%>
+										&emsp;<strong>(<%=val%>%)</strong>
+									<% } %>
+								</dd>
 							<dt>Sezioni totali</dt>
 								<dd><%= spoglioSenato.sezioniTotali %></dd>
 						</dl>
@@ -98,19 +129,52 @@
 							<dt>Aggiornamento</dt>
 								<dd><% var cameraDate = new Date(spoglioCamera.lastUpdate); %><%= cameraDate %></dd>
 							<dt>Numero Totale dei Votanti</dt>
-								<dd><%= spoglioCamera.totaleVotanti %></dd>
+								<dd>
+									<%= spoglioCamera.totaleVotanti %>
+									<% if (spoglioCamera.totaleIscritti && spoglioCamera.totaleIscritti>0) { 
+										var val = ((spoglioCamera.totaleVotanti*100) / spoglioCamera.totaleIscritti).toFixed(2)
+										%>
+										&emsp;<strong>(<%=val%>%)</strong>
+									<% } %>
+								</dd>
 							<dt>Totale degli Iscritti</dt>
-								<dd><%= spoglioCamera.totaleIscritti %></dd>
+								<dd>
+									<%= spoglioCamera.totaleIscritti %>
+								</dd>
 							<dt>Schede valide</dt>
 								<dd><%= spoglioCamera.totaleValide %></dd>
 							<dt>Schede bianche</dt>
-								<dd><%= spoglioCamera.totaleBianche %></dd>
+								<dd><%= spoglioCamera.totaleBianche %>
+									<% if (spoglioCamera.totaleValide && spoglioCamera.totaleValide>0) { 
+										var val = ((spoglioCamera.totaleBianche*100) / spoglioCamera.totaleValide).toFixed(2)
+										%>
+										&emsp;<strong>(<%=val%>%)</strong>
+									<% } %>
+								</dd>
 							<dt>Schede nulle</dt>
-								<dd><%= spoglioCamera.totaleNulle %></dd>
+								<dd><%= spoglioCamera.totaleNulle %>
+									<% if (spoglioCamera.totaleValide && spoglioCamera.totaleValide>0) { 
+										var val = ((spoglioCamera.totaleNulle*100) / spoglioCamera.totaleValide).toFixed(2)
+										%>
+										&emsp;<strong>(<%=val%>%)</strong>
+									<% } %>
+								</dd>
 							<dt>Schede contestate</dt>
-								<dd><%= spoglioCamera.totaleContestate %></dd>
+								<dd><%= spoglioCamera.totaleContestate %>
+									<% if (spoglioCamera.totaleValide && spoglioCamera.totaleValide>0) { 
+										var val = ((spoglioCamera.totaleContestate*100) / spoglioCamera.totaleValide).toFixed(2)
+										%>
+										&emsp;<strong>(<%=val%>%)</strong>
+									<% } %>
+								</dd>
 							<dt>Sezioni scrutinate</dt>
-								<dd><%= spoglioCamera.sezioniScrutinate %></dd>
+								<dd><%= spoglioCamera.sezioniScrutinate %>
+									<% if (spoglioCamera.sezioniTotali && spoglioCamera.sezioniTotali>0) { 
+										var val = ((spoglioCamera.sezioniScrutinate*100) / spoglioCamera.sezioniTotali).toFixed(2)
+										%>
+										&emsp;<strong>(<%=val%>%)</strong>
+									<% } %>
+								</dd>
 							<dt>Sezioni totali</dt>
 								<dd><%= spoglioCamera.sezioniTotali %></dd>
 						</dl>
