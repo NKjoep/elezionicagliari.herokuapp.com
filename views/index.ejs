@@ -14,6 +14,32 @@
 			}
 		  </style>
 		<![endif]-->
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		 <script type="text/javascript">
+		  google.load("visualization", "1", {packages:["corechart"]});
+		  google.setOnLoadCallback(drawChart);
+		  function drawChart() {
+			var chart = new google.visualization.PieChart(document.getElementById('chart_div1'));
+			chart.draw(
+					google.visualization.arrayToDataTable([
+						['Lista', 'Percentuale'],
+						<% if(risultatiSenato!=null)
+							for (var i = 0; i<risultatiSenato.length;i++) { %>
+							["<%= risultatiSenato[i].id %> - <%= risultatiSenato[i].descrizione %>", <%= risultatiSenato[i].percentuale %>] <% if (i < (risultatiSenato.length-1)) { %>,<%}%> 
+						<% } %>
+					]),{});
+			var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
+			chart2.draw(
+					google.visualization.arrayToDataTable([
+						['Lista', 'Percentuale'],
+						<% if(risultatiCamera!=null)
+							for (var i = 0; i<risultatiCamera.length;i++) { %>
+							["<%= risultatiCamera[i].id %> - <%= risultatiCamera[i].descrizione %>", <%= risultatiCamera[i].percentuale %>] <% if (i < (risultatiCamera.length-1)) { %>,<%}%> 
+						<% } %>
+					]),{});
+
+		  };
+		</script>
 		<script type="text/javascript">
 
 		  var _gaq = _gaq || [];
@@ -21,9 +47,9 @@
 		  _gaq.push(['_trackPageview']);
 
 		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
 
 		</script>
@@ -120,6 +146,7 @@
 								</tr>
 							<% } %>
 						</table>
+						<div id="chart_div1" class="chart"></div>
 					</article>
 				</section>
 				<section class="span6">
@@ -201,6 +228,7 @@
 								</tr>
 							<% } %>
 						</table>
+						<div id="chart_div2" class="chart"></div>
 					</article>
 				</section>
 			</div>
